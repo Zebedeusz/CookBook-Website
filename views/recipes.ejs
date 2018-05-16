@@ -1,0 +1,33 @@
+<% include partials/header %>
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+            <h1>recipes</h1>
+            <p>All our fantastic recipes!</p>
+            <p><a class="btn btn-primary btn-lg" href="/recipes/new">Add new recipe</a></p>
+        </div>
+    </header>
+
+    <div class="container">
+        <h3>Most popular</h3>
+    </div>
+
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+        <% data.forEach(function(d) { %>
+        <div class="col-md-4 col-sm-6">
+            <div class="thumbnail">
+                <img src=<%= d.image %>>
+                <div class="caption">
+                    <h5><%= d.name %></h5>
+                </div>
+                <p>
+                    <a href="/recipes/<%= d._id %>" class="btn btn-primary btn-sm">More info</a>
+                </p>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</div>
+
+<% include partials/footer %>
